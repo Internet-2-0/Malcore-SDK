@@ -10,7 +10,7 @@ class MaintenanceModeActive(Exception): pass
 class InvalidApiKeyPassed(Exception): pass
 
 
-MSDK_VERSION = "0.0.0.1"
+MSDK_VERSION = "0.0.0.2"
 
 
 def check_invalid_api_key(request_data):

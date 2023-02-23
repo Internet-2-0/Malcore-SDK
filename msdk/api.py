@@ -13,7 +13,7 @@ class MalcoreApiSdk(Api):
 
     def status_check(self, uuid):
         url = f"{self.base_url}/status"
-        return post_data(url, f"uuid={uuid}", proxy=self.proxy, headers=self.headers)
+        return post_data(url, {"uuid": uuid}, proxy=self.proxy, headers=self.headers)
 
     def pcap_diff(self, filename1, filename2):
         url = f"{self.base_url}/pcapdiff"
@@ -53,7 +53,7 @@ class MalcoreApiSdk(Api):
 
     def shellcode_emulation(self, shellcode, arch=64):
         url = f"{self.base_url}/shellcode"
-        return post_data(url, f"shellcode={shellcode}&arch={arch}", headers=self.headers, proxy=self.proxy)
+        return post_data(url, {"shellcode": shellcode, "arch": arch}, headers=self.headers, proxy=self.proxy)
 
     def domain_analysis(self, domain):
         url = f"{self.base_url}/domain"
@@ -61,7 +61,7 @@ class MalcoreApiSdk(Api):
 
     def android_permission_lookup(self, permission_name):
         url = f"{self.base_url}/androidperms"
-        return post_data(url, f"perm={permission_name}", proxy=self.proxy, headers=self.headers)
+        return post_data(url, {"perm": permission_name}, proxy=self.proxy, headers=self.headers)
 
     def threat_score(self, filename1):
         url = f"{self.base_url}/threatscore"
@@ -69,7 +69,7 @@ class MalcoreApiSdk(Api):
 
     def ssdeep_comparison(self, ssdeep_hash):
         url = f"{self.base_url}/compare"
-        return post_data(url, f"ssdeep_hash={ssdeep_hash}", proxy=self.proxy, headers=self.headers)
+        return post_data(url, {"ssdeep_hash": ssdeep_hash}, proxy=self.proxy, headers=self.headers)
 
     def binary_diffing(self, filename1, filename2):
         url = f"{self.base_url}/bindiff"
@@ -98,7 +98,7 @@ class MalcoreApiSdk(Api):
 
     def execute_from_url(self, url):
         url = f"{self.base_url}/execfromurl"
-        return post_data(url, f"data={url}", proxy=self.proxy, headers=self.headers)
+        return post_data(url, {"data": url}, proxy=self.proxy, headers=self.headers)
 
     def view_full_asm_hexdump(self, sha256_id, view_type):
         url = f"{self.base_url}/viewfull"
