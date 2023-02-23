@@ -68,7 +68,7 @@ This allows users the ability to add endpoints to the SDK as they become availab
 
 # Installation
 
-Simply run `pip install msdk` optionally you can manually install by running:
+Malcore SDK requires Python 3.8+ to use installation is simple run `pip install msdk` optionally you can manually install by running:
 
 ```bash
 git clone https://github.com/internet-2-0/Malcore-SDK
