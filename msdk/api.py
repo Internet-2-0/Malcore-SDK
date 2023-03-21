@@ -7,7 +7,9 @@ class MalcoreApiSdk(Api):
     def __init__(self, api_key, **kwargs):
         super().__init__(api_key, **kwargs)
 
-    def executable_file_analysis(self, filename1):
+    def executable_file_analysis(self, filename1, no_poll=False):
+        if no_poll:
+            self.headers["x-No-Poll"] = True
         url = f"{self.base_url}/upload"
         return post_files(url, filename1=filename1, headers=self.headers, proxies=self.proxy)
 

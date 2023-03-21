@@ -11,7 +11,7 @@ class InvalidApiKeyPassed(Exception): pass
 
 
 # major.minor.patch.commit
-MSDK_VERSION = "0.0.1.3"
+MSDK_VERSION = "0.1.1.4"
 
 
 def check_invalid_api_key(request_data):
