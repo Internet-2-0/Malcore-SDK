@@ -98,7 +98,7 @@ class MalcoreApiSdk(Api):
 
     def execute_from_url(self, url):
         url = f"{self.base_url}/execfromurl"
-        return post_data(url, {"data": url}, proxy=self.proxy, headers=self.headers)
+        return post_data(url, {"url": url}, proxy=self.proxy, headers=self.headers)
 
     def view_full_asm_hexdump(self, sha256_id, view_type):
         url = f"{self.base_url}/viewfull"

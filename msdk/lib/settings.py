@@ -10,7 +10,8 @@ class MaintenanceModeActive(Exception): pass
 class InvalidApiKeyPassed(Exception): pass
 
 
-MSDK_VERSION = "0.0.0.2"
+# major.minor.patch.commit
+MSDK_VERSION = "0.0.1.3"
 
 
 def check_invalid_api_key(request_data):
