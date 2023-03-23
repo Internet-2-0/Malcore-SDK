@@ -9,7 +9,7 @@ class MalcoreApiSdk(Api):
 
     def executable_file_analysis(self, filename1, no_poll=False):
         if no_poll:
-            self.headers["x-No-Poll"] = True
+            self.headers["X-No-Poll"] = "true"
         url = f"{self.base_url}/upload"
         return post_files(url, filename1=filename1, headers=self.headers, proxies=self.proxy)
 

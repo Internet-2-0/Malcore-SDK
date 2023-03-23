@@ -11,7 +11,7 @@ class InvalidApiKeyPassed(Exception): pass
 
 
 # major.minor.patch.commit
-MSDK_VERSION = "0.1.1.4"
+MSDK_VERSION = "0.1.6.8"
 
 
 def check_invalid_api_key(request_data):
@@ -29,16 +29,22 @@ def check_maintenance_mode(data):
     """
     checks if the server is in maintenance mode from the JSON results
     """
-    if data['isMaintenance']:
-        raise MaintenanceModeActive("API is currently in maintenance mode, try again later")
+    try:
+        if data['isMaintenance']:
+            raise MaintenanceModeActive("API is currently in maintenance mode, try again later")
+    except:
+        return
 
 
 def check_successful_scan(data):
     """
     checks if the scan was successful or not
     """
-    if not data['success']:
-        raise UploadError("Scan was not successful")
+    try:
+        if not data['success']:
+            raise UploadError("Scan was not successful")
+    except:
+        return
 
 
 def check_result_type(data):
@@ -46,17 +52,20 @@ def check_result_type(data):
     checks if there are any error messages in the data output
     """
     errors = []
-    for item in data['data']['messages']:
-        try:
-            if item['type'] == "danger":
-                errors.append(item['message'])
-        except:
-            pass
-    if len(errors) != 0:
-        err_str = ""
-        for i, error in enumerate(errors, start=1):
-            err_str += f"\n\t#{i} -> '{error}'"
-        raise UploadError(f"{len(errors)} total error(s) during upload, error message(s) are as follows: {err_str}")
+    try:
+        for item in data['data']['messages']:
+            try:
+                if item['type'] == "danger":
+                    errors.append(item['message'])
+            except:
+                pass
+        if len(errors) != 0:
+            err_str = ""
+            for i, error in enumerate(errors, start=1):
+                err_str += f"\n\t#{i} -> '{error}'"
+            raise UploadError(f"{len(errors)} total error(s) during upload, error message(s) are as follows: {err_str}")
+    except:
+        return
 
 
 def post_files(url, filename1=None, filename2=None, **kwargs):
@@ -65,6 +74,9 @@ def post_files(url, filename1=None, filename2=None, **kwargs):
     """
     headers = kwargs.get("headers", None)
     proxy = kwargs.get("proxy", None)
+
+    if proxy is None:
+        proxy = {}
 
     assert headers is not None
     assert type(proxy) == dict
