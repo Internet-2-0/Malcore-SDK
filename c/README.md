@@ -17,7 +17,7 @@ ApiResponse execFileAnalysisResponse = makeMalcoreApiRequest(&execFromUrlRequest
 
 // POST data upload
 ApiRequest domainAnalysisRequest = {
-  .url = "https://api.malcore.io/api/upload",
+  .url = "https://api.malcore.io/api/domain",
   .apiKey = "MYAPIKEY",
   .fileName = NULL,
   .postData = "domain=123.com"
