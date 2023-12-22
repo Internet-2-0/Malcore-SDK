@@ -6,6 +6,7 @@ This package is a software development kit (SDK) for the Malcore API. It provide
 
 - [Python 3.x](./python)
 - [Java](./java)
+- [C](./c)
 
 # Creating an SDK for another language
 
@@ -19,6 +20,12 @@ If you are interested in creating an SDK for another language follow the below s
 
 # Other issues
 
-Make an issue on the Github issue tracker following the template and allow us time to review the issue
+Make an issue on the [Github](https://github.com/Internet-2-0/Malcore-SDK/issues) issue tracker following the template and allow us time to review the issue
+
+# Credits
+
+Special thanks to all the people who have contributed to the SDKs 
+
+- [Torrenting](https://github.com/Torrenting) for the Java SDK
 
 [<br><br><br><br><p align="center" width="100%"><img src=".github/images/malcore_logo.png"/></p>](https://link.malcore.io/readme/redirect)
