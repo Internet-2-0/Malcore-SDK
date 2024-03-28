@@ -129,6 +129,7 @@ public class MalcoreAPI {
         connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod(currentAction.getRequestType());
         connection.setRequestProperty("apiKey", apiKey);
+        connection.setRequestProperty("User-Agent", "Malcore-SDK/Java")
 
         if ("POST".equalsIgnoreCase(currentAction.getRequestType())) {
             connection.setDoOutput(true);
