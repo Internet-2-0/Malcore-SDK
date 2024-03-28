@@ -32,7 +32,7 @@ class Api(object):
 
         self.headers = {
             "apiKey": api_key,
-            "User-Agent": f"Malcore-SDK/{settings.MSDK_VERSION}"
+            "User-Agent": f"Malcore-SDK/Python {settings.MSDK_VERSION}"
         }
         if proxy is not None:
             assert type(proxy) == str
