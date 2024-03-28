@@ -32,6 +32,7 @@ ApiResponse makeMalcoreApiRequest(const HttpRequestData *request_data) {
         char header_string[40];
         sprintf(headerString, "apiKey: %s", request_data->apiKey);
         headers = curl_slist_append(headers, headerString);
+        curl_easy_setopt(curl, CURLOPT_USERAGENT, "Malcore-SDK/c");
         curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, callBackHandler);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)&response);
