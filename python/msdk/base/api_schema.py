@@ -1,6 +1,8 @@
 import os
 import warnings
 
+import msdk.lib.settings as settings
+
 
 class Api(object):
 
@@ -28,7 +30,10 @@ class Api(object):
                 )
                 self.base_url = "https://api.malcore.io/api"
 
-        self.headers = {"apiKey": api_key}
+        self.headers = {
+            "apiKey": api_key,
+            "User-Agent": f"Malcore-SDK/{settings.MSDK_VERSION}"
+        }
         if proxy is not None:
             assert type(proxy) == str
             self.proxy = {"http": proxy, "https": proxy}
